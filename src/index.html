@@ -4,35 +4,173 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My shop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="scss/style.scss">
+    <title>Lab 4</title>
 </head>
 <body>
     <header class="header">
-        <img src="img/header_logo.svg" alt="" class="header__logo">
-        <ul class="header__menu">
-            <li class="header__menu__item">
-                <a href="#"><img src="img/header_profile.jpg" alt="" class="header__icon"></a>
-            </li>
-            <li class="header__menu__item">
-                <a href="cart.html"><img src="img/header_cart.png" alt="" class="header__icon"></a>
-            </li>
-            <li class="header__menu__item" style="display: none;">
-                <a href="order.html"><img src="img/header_cart.png" alt="" class="header__icon"></a>
-            </li>
-        </ul>
+        <img src="img/header-logo.png" alt="" class="header__logo">
+        <h1 class="header__title">
+            Weather
+        </h1>
     </header>
-
-    <section class="goods">
-        <div class="goods__title">
-            Our goods
-        </div>
-        <div class="goods__container" id="goods__container">
+    <section class="weather">
+        <h2 class="weather__title">Погода в містах України</h2>
+        <div class="weather__container">
+            <div class="weather__item">
+                <div class="weather__item__header">
+                    <h3 class="weather__item__header__city">
+                        Kyiv
+                    </h3>
+                    <div class="weather__item__header__coords">
+                        <p class="weather__item__header__coord">
+                            Lon: 123
+                        </p>
+                        <p class="weather__item__header__coord">
+                            Lat: 123
+                        </p>
+                    </div>
+                </div>
+                <div class="weather__item__desc">
+                    <div class="weather__item__desc__title">
+                        Clear
+                    </div>
+                    <img src="img/header-logo.png" alt="" class="weather__item__desc__img">
+                    <div class="weather__item__desc__text">
+                        Чисте небо 
+                    </div>
+                </div>
+                <div class="weather__item__summary">
+                    <div class="weather__item__summary__item">
+                        <p class="weather__item__summary__text">
+                            Середня темп.: 123
+                        </p>
+                        <p class="weather__item__summary__text">
+                            Відчувається: 12
+                        </p>
+                    </div>
+                    <div class="weather__item__summary__item">
+                        <p class="weather__item__summary__text">
+                            Мінімальна темп.: 21
+                        </p>
+                        <p class="weather__item__summary__text">
+                            Максимальна темп.: 213
+                        </p>
+                    </div>
+                    <div class="weather__item__summary__item">
+                        <p class="weather__item__summary__text">
+                            Тиск: 123
+                        </p>
+                        <p class="weather__item__summary__text">
+                            Вологість: 123
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="weather__item">
+                <div class="weather__item__header">
+                    <h3 class="weather__item__header__city">
+                        Kyiv
+                    </h3>
+                    <div class="weather__item__header__coords">
+                        <p class="weather__item__header__coord">
+                            Lon: 123
+                        </p>
+                        <p class="weather__item__header__coord">
+                            Lat: 123
+                        </p>
+                    </div>
+                </div>
+                <div class="weather__item__desc">
+                    <div class="weather__item__desc__title">
+                        Clear
+                    </div>
+                    <img src="img/header-logo.png" alt="" class="weather__item__desc__img">
+                    <div class="weather__item__desc__text">
+                        Чисте небо 
+                    </div>
+                </div>
+                <div class="weather__item__summary">
+                    <div class="weather__item__summary__item">
+                        <p class="weather__item__summary__text">
+                            Середня темп.: 123
+                        </p>
+                        <p class="weather__item__summary__text">
+                            Відчувається: 12
+                        </p>
+                    </div>
+                    <div class="weather__item__summary__item">
+                        <p class="weather__item__summary__text">
+                            Мінімальна темп.: 21
+                        </p>
+                        <p class="weather__item__summary__text">
+                            Максимальна темп.: 213
+                        </p>
+                    </div>
+                    <div class="weather__item__summary__item">
+                        <p class="weather__item__summary__text">
+                            Тиск: 123
+                        </p>
+                        <p class="weather__item__summary__text">
+                            Вологість: 123
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="weather__item">
+                <div class="weather__item__header">
+                    <h3 class="weather__item__header__city">
+                        Kyiv
+                    </h3>
+                    <div class="weather__item__header__coords">
+                        <p class="weather__item__header__coord">
+                            Lon: 123
+                        </p>
+                        <p class="weather__item__header__coord">
+                            Lat: 123
+                        </p>
+                    </div>
+                </div>
+                <div class="weather__item__desc">
+                    <div class="weather__item__desc__title">
+                        Clear
+                    </div>
+                    <img src="img/header-logo.png" alt="" class="weather__item__desc__img">
+                    <div class="weather__item__desc__text">
+                        Чисте небо 
+                    </div>
+                </div>
+                <div class="weather__item__summary">
+                    <div class="weather__item__summary__item">
+                        <p class="weather__item__summary__text">
+                            Середня темп.: 123
+                        </p>
+                        <p class="weather__item__summary__text">
+                            Відчувається: 12
+                        </p>
+                    </div>
+                    <div class="weather__item__summary__item">
+                        <p class="weather__item__summary__text">
+                            Мінімальна темп.: 21
+                        </p>
+                        <p class="weather__item__summary__text">
+                            Максимальна темп.: 213
+                        </p>
+                    </div>
+                    <div class="weather__item__summary__item">
+                        <p class="weather__item__summary__text">
+                            Тиск: 123
+                        </p>
+                        <p class="weather__item__summary__text">
+                            Вологість: 123
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </body>
-<script src="./js/index.js"></script>
 </html>
