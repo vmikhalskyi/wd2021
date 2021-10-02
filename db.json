@@ -1,0 +1,16 @@
+{
+    "cities": [
+        {
+            "id": 1,
+            "title": "Kyiv"
+        },
+        {
+            "id": 2,
+            "title": "Odesa"
+        },
+        {
+            "id": 3,
+            "title": "Lviv"
+        }
+    ]
+}
