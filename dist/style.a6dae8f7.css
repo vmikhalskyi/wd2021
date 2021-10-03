@@ -36,7 +36,7 @@ body {
   grid-column-gap: 30px;
 }
 .weather__item {
-  width: 360px;
+  width: 420px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -62,7 +62,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 .weather__item__desc__title {
   font-weight: bold;
@@ -83,7 +83,7 @@ body {
   justify-content: center;
 }
 .weather__item__summary__item {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 .weather__item__summary__item:first-child {
   margin-right: 30px;
@@ -91,6 +91,9 @@ body {
 .weather__item__summary__text {
   margin: 0;
   font-style: italic;
+}
+.weather__item__about {
+  font-size: 16px;
 }
 
 /*# sourceMappingURL=/style.a6dae8f7.css.map */

@@ -117,79 +117,57 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"info.json":[function(require,module,exports) {
+module.exports = {
+  "cities": [{
+    "id": 1,
+    "title": "Kyiv"
+  }, {
+    "id": 2,
+    "title": "Odesa"
+  }, {
+    "id": 3,
+    "title": "Lviv"
+  }]
+};
+},{}],"js/main.js":[function(require,module,exports) {
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-  return bundleURL;
-}
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
+var data = require('../info.json');
+
+var APIkey = '4245a9a04e1d8e2891aada0d741989aa';
+
+function getCities() {
+  var weatherContainer = document.getElementById("weather__container");
+  var cities = data.cities;
+
+  var _iterator = _createForOfIteratorHelper(cities),
+      _step;
+
   try {
-    throw new Error();
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var city = _step.value;
+      fetch("https://api.openweathermap.org/data/2.5/weather?q=".concat(city.title, "&units=metric&lang=ua&appid=").concat(APIkey)).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        var imgURL = "https://openweathermap.org/img/w/".concat(data.weather[0].icon, ".png");
+        var list = "<div class=\"weather__item\">\n        <div class=\"weather__item__header\">\n            <h3 class=\"weather__item__header__city\">\n                ".concat(data.name, "\n            </h3>\n            <div class=\"weather__item__header__coords\">\n                <p class=\"weather__item__header__coord\">\n                    Lon: ").concat(data.coord.lon, "\n                </p>\n                <p class=\"weather__item__header__coord\">\n                    Lat: ").concat(data.coord.lat, "\n                </p>\n            </div>\n        </div>\n        <div class=\"weather__item__desc\">\n            <div class=\"weather__item__desc__title\">\n                ").concat(data.weather[0].main, "\n            </div>\n            <img src=\"").concat(imgURL, "\" alt=\"\" class=\"weather__item__desc__img\">\n            <div class=\"weather__item__desc__text\">\n                ").concat(data.weather[0].description, "\n            </div>\n        </div>\n        <div class=\"weather__item__summary\">\n            <div class=\"weather__item__summary__item\">\n                <p class=\"weather__item__summary__text\">\n                    \u0421\u0435\u0440\u0435\u0434\u043D\u044F \u0442\u0435\u043C\u043F.: ").concat(data.main.temp, "&#8451;\n                </p>\n                <p class=\"weather__item__summary__text\">\n                    \u0412\u0456\u0434\u0447\u0443\u0432\u0430\u0454\u0442\u044C\u0441\u044F: ").concat(data.main.feels_like, "&#8451;\n                </p>\n            </div>\n            <div class=\"weather__item__summary__item\">\n                <p class=\"weather__item__summary__text\">\n                    \u041C\u0456\u043D\u0456\u043C\u0430\u043B\u044C\u043D\u0430 \u0442\u0435\u043C\u043F.: ").concat(data.main.temp_min, "&#8451;\n                </p>\n                <p class=\"weather__item__summary__text\">\n                    \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u0430 \u0442\u0435\u043C\u043F.: ").concat(data.main.temp_max, "&#8451;\n                </p>\n            </div>\n            <div class=\"weather__item__summary__item\">\n                <p class=\"weather__item__summary__text\">\n                    \u0422\u0438\u0441\u043A: ").concat(data.main.pressure, " hPa\n                </p>\n                <p class=\"weather__item__summary__text\">\n                    \u0412\u043E\u043B\u043E\u0433\u0456\u0441\u0442\u044C: ").concat(data.main.humidity, "%\n                </p>\n            </div>\n        </div>\n        <div class=\"weather__item__about\">\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n            Phasellus vulputate ipsum ut libero lobortis, vel tincidunt orci sollicitudin.\n            Fusce euismod nibh sagittis eros fringilla.\n        </div>\n        </div>");
+        weatherContainer.innerHTML = list + weatherContainer.innerHTML;
+      });
+    }
   } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
   }
-
-  return '/';
 }
 
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"scss/style.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+getCities();
+},{"../info.json":"info.json"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -393,5 +371,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/style.a6dae8f7.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/main.js"], null)
+//# sourceMappingURL=/main.fb6bbcaf.js.map

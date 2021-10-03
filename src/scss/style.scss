@@ -44,7 +44,7 @@ body {
     }
 
     &__item {
-        width: 360px;
+        width: 420px;
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -73,7 +73,7 @@ body {
             display: flex;
             align-items: center;
             flex-direction: column;
-            margin-bottom: 40px;
+            margin-bottom: 80px;
 
             &__title {
                 font-weight: bold;
@@ -101,13 +101,18 @@ body {
                 &:first-child {
                     margin-right: 30px;
                 }
-                margin-bottom: 10px;
+                
+                margin-bottom: 25px;
             }
 
             &__text {
                 margin: 0;
                 font-style: italic;
             }
+        }
+
+        &__about {
+            font-size: 16px;
         }
     }
 }

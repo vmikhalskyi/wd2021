@@ -117,79 +117,62 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"js/vanilla-js-tooltip.min.js":[function(require,module,exports) {
+Tooltip = function Tooltip(t) {
+  function e(t, e, o, a) {
+    var i,
+        s,
+        r = t.getBoundingClientRect();
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
+    switch (console.log(a), o) {
+      case "left":
+        i = parseInt(r.left) - n - e.offsetWidth, parseInt(r.left) - e.offsetWidth < 0 && (i = n);
+        break;
 
-  return bundleURL;
-}
+      case "right":
+        i = r.right + n, parseInt(r.right) + e.offsetWidth > document.documentElement.clientWidth && (i = document.documentElement.clientWidth - e.offsetWidth - n);
+        break;
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
+      default:
+      case "center":
+        i = parseInt(r.left) + (t.offsetWidth - e.offsetWidth) / 2;
     }
 
-    cssTimeout = null;
-  }, 50);
-}
+    switch (a) {
+      case "center":
+        s = (parseInt(r.top) + parseInt(r.bottom)) / 2 - e.offsetHeight / 2;
+        break;
 
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"scss/style.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
+      case "bottom":
+        s = parseInt(r.bottom) + n;
+        break;
 
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+      default:
+      case "top":
+        s = parseInt(r.top) - e.offsetHeight - n;
+    }
+
+    i = 0 > i ? parseInt(r.left) : i, s = 0 > s ? parseInt(r.bottom) + n : s, e.style.left = i + "px", e.style.top = s + pageYOffset + "px";
+  }
+
+  var o = t.theme || "dark",
+      a = t.delay || 0,
+      n = t.distance || 10;
+  document.body.addEventListener("mouseover", function (t) {
+    if (t.target.hasAttribute("data-tooltip")) {
+      var a = document.createElement("div");
+      a.className = "b-tooltip b-tooltip-" + o, a.innerHTML = t.target.getAttribute("data-tooltip"), document.body.appendChild(a);
+      var n = t.target.getAttribute("data-position") || "center top",
+          i = n.split(" ")[0];
+      posVertical = n.split(" ")[1], e(t.target, a, i, posVertical);
+    }
+  }), document.body.addEventListener("mouseout", function (t) {
+    t.target.hasAttribute("data-tooltip") && setTimeout(function () {
+      document.body.removeChild(document.querySelector(".b-tooltip"));
+    }, a);
+  });
+};
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -393,5 +376,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/style.a6dae8f7.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/vanilla-js-tooltip.min.js"], null)
+//# sourceMappingURL=/vanilla-js-tooltip.min.8ec3c0ba.js.map
