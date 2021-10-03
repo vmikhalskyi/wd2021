@@ -1,16 +1,17 @@
 {
-    "cities": [
+    "about": [
         {
             "id": 1,
-            "title": "Kyiv"
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vulputate ipsum ut libero lobortis, vel tincidunt orci sollicitudin. Fusce euismod nibh sagittis eros fringilla."
         },
         {
             "id": 2,
-            "title": "Odesa"
+            "text": "Quisque cursus lectus a sapien cursus, a porttitor risus elementum. Sed id blandit orci, quis tristique nulla. Nullam gravida risus eu dolor auctor vehicula in quis dui. Nunc dolor libero, feugiat mollis elit tempor, ultrices mollis mi."
         },
         {
             "id": 3,
-            "title": "Lviv"
+            "text": "ed suscipit nisi ante, id lacinia lacus porta vitae. Integer id volutpat felis, dapibus ornare risus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut consectetur eget justo vitae rutrum. Maecenas congue tortor eu molestie pretium."
         }
     ]
 }
+
