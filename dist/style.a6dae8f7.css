@@ -26,14 +26,16 @@ body {
   flex-direction: column;
   align-items: center;
   margin-bottom: 60px;
+  margin-top: 10px;
 }
 .weather__title {
   font-size: 32px;
 }
 .weather__container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
 }
 .weather__item {
   width: 420px;
@@ -44,6 +46,10 @@ body {
   border: 3px solid #a6a9e3;
   border-radius: 20px;
   box-shadow: 10px 10px 15px 0px #0f0a1652;
+  margin-bottom: 30px;
+}
+.weather__item:not(:first-child) {
+  margin-left: 30px;
 }
 .weather__item__header {
   width: 100%;
